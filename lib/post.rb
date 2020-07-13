@@ -1,0 +1,25 @@
+require 'pry'
+require_relative 'author'
+require_relative 'post'
+require_relative 'song'
+
+class Post
+        attr_accessor :title, :author
+        @@all = []
+        def initialize(title)
+                @title = title
+                @@all << self
+        end
+
+        def self.all
+                @@all
+        end
+
+        def author_name
+                if author
+                        author.name
+                else
+                        return nil
+                end
+        end
+end
